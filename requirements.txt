@@ -4,3 +4,8 @@ python-dotenv
 streamlit
 faiss-cpu
 streamlit-extras
+openai==0.28.0
+langchain-community==0.0.13
+pillow==10.2.0
+tiktoken==0.5.2
+transformers==4.36.2
