@@ -42,7 +42,8 @@ def handlePdf(pdf):
         length_function=len)
     
     chunks = text_splitter.split_text(text=text)
-    
+    st.write(f"Number of chunks:{len(chunks)}")
+    st.write(chunks)
     # if the embeddign file exists load from embeddings
     if os.path.exists(f"{store_name}.pkl"):
         with open(f"{store_name}.pkl", "rb") as f:
