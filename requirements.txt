@@ -10,3 +10,10 @@ pillow==10.2.0
 tiktoken==0.5.2
 transformers==4.36.2
 sentence-transformers
+langchain-openai 
+langchainhub
+langchain-experimental
+duckduckgo-search
+pyautogen
+qdrant_cleint[fastembed]
+flaml[automl]

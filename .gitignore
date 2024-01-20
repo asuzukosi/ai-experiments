@@ -1,2 +1,7 @@
 /venv
 .env
+OAI_CONFIG_LIST
+*/.cache/
+.cache/
+/.cache
+local_cache
