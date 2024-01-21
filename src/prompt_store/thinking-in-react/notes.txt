@@ -1,0 +1,119 @@
+To think in react is to think in components, 
+Reacts structures thinking about UI in the form of composable components
+each component can either hold its own data or receive data from its parents.
+Each component can also pass down the data it stores to its children
+
+
+we coneect the components togehter so that the data flows through them.
+
+[
+  { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
+  { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
+  { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
+  { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
+  { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
+  { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
+]
+The first step to thinking in react is to break the ui down into a component heirarchy
+
+Start by drawing boxes around every component and sub component in the mockup and naming them.
+If you use a design tool like figma you can already name these components within the desing tool
+
+
+You can think of the splitting of the UI into components in different ways:
+- programming
+- css
+- design
+
+If the API data is well structured it naturally maps to the component structure of the UI. 
+the UI and data model often hav ethe same information architecture. When you are done splitting
+your components you can then arrange them into heirarchies
+
+
+Building a static verstion requires a lot of typing but no thinking, adding 
+interactivity to your static version requiremes a lot of thinkgin but little typing .
+
+Dont use state when building an interactive version, you do not need to think
+about adding interactivity when building the simple static version. 
+
+
+Hooks are special function that let you hook into react. I have no idea what that means, the 
+only hook I've used is the useState()
+
+Adding inverse dataflow
+
+Currently our papp renders correctly with props and state flowing down the heirarchy.
+
+But when the state changes due to use input, we need the state tyo uflow the other direction.
+
+
+Starting a new react project
+
+If you want to build a new app or new website fully with react, it is recommeded 
+to use one of the react-powered frameworks popular in the community. Frameworks provide
+features that most apps  and sites will eventually need such as:
+- routing
+- data fetching
+- generating HTMl
+
+You can use node.js in production although you may not need to as most 
+React framewokrs expprt a public static folder which comes with html/css/js
+
+Production grade react frameworks - what does it mean to be production grade?
+Next.js - top of the list, therefore most recommended. 
+Next.js is a full react framework. It is versatile and lets you create React
+apps of any size - from a mostly static blog to a complex dynamic application. To 
+start a new Next.js project, run the command:
+
+npx create-next-app@latest <name_of_app>
+
+Remix - Remix is a full-stack react framework with nested routing. it lest you break
+your app into nested parts that can load data in parallel and refresh in response to the user actions
+to create remix app, you run the command 
+
+npx create-remix
+
+Gatsby - Gatsby is a react framewokr for fast CMS-backec websites. Its rich plugin ecosystem and 
+its GraphQl data layer simplify intergrationg contnet, APIs and srvices into one website. To create a Gatsby project, run:
+
+npx create-gatsby 
+
+Expo - Expo is a react framework for building native apps. It makes it easier to build native apps with react-native
+
+You can use React without a framework, especially if you are using it as part of a page.
+However, if you're building a new app or a new site fully with react the react team recommeds the use of a framework. 
+
+Why?
+
+Even if you do not need rouging or data fetching at first, you are likely going to wnat ot add some libraries for them. 
+As your javascript bundle grows with every new feature, you might haeve to figure out how to split code for every route individually. 
+As your data fetching needs get more complex, you are likely to encounter server-client network waterfalls that make  your app 
+feel very slow. As your audience includes more users with poor entwork conditions and low-end devices, you might need to generate HTML form your components to 
+display content early - either on the srver, or during the build time. Changing your setup to run some of your code on the server or during the build can be very tricky. 
+
+These problems are not React specific. This is why Svelt has SveltKit, Vue has Nuxt and so on. To solv e these problems on your own, youll need to integrate yoru bunndelr with 
+your router and with your data fetching library. It's not hard to get an inital setup working, but there are a lot fo subtleties involved in making an app that loads quickly evne as it grows over time.
+You'll want to send don the minimal amoutn of app code but do so in a single client-server roundtrip, in parallel with any data required for the page. You'll likel want the page to be interactive befor your 
+javascript code venv runs. The react frameworks listed above solve these problems with no extra work. Theylet you 
+start very learn and then scale your app to your needs. Each react framework has a communitys so the features are well 
+supported and forums exist for finding solutions to questions. Additionally frameworks also give structure to your code, helping you and others 
+retain context and skill between different projects. Conversely, with a custom setup it's easier to get stuck on unsuported dependency versions, and you'' essentiall end up creating you own framework - with no communityor upgrade path.
+
+- Would be a cool project to explore buiding a custom react framework. 
+
+Bleedin edge react frameworks. 
+
+
+Adding react to an existing project. 
+If you want to add interactivity to an existing project, you don't have to rewrite the 
+whole thing in react, you can intergrate react to an existing project 
+
+useState
+useContext
+useReducer
+useMemo
+useCallback
+
+
+
+
