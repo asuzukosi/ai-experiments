@@ -115,5 +115,24 @@ useMemo
 useCallback
 
 
+Tailwind is a css framework that speeds up the develpoment process 
+allowin gyou to quickly write utility classes directly into you TSX markup
+
+In tailwind we style by adding class names, for example 'text-blue-500' 
+will turn the text blue. 
+Although the styles are applied globally, each class is singluarly applied to each elemtn 
+This means if you add or delete an element, you dont have to worry abou maintaingin seperate stylesheets, 
+style collisions aor the size of the css bundle growing as your application scales.
+
+
+Tailwind and CSS modules are the two most common ways of styling 
+Next.js applications. Whether you use one 
+or the other is a matter of preference - 
+you can even use both in the same application!
+
+
+The Next.js Image component automatically does image optimizations for you 
+these handles topics such as resizing on different devices, preventing layout shift, 
+lazy loading and also serving images in modern formats such as WebP and AVIF
 
 
