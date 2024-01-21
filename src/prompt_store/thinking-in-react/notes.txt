@@ -136,3 +136,5 @@ these handles topics such as resizing on different devices, preventing layout sh
 lazy loading and also serving images in modern formats such as WebP and AVIF
 
 
+Root layout is required in all Next.js applications
+
