@@ -136,5 +136,171 @@ these handles topics such as resizing on different devices, preventing layout sh
 lazy loading and also serving images in modern formats such as WebP and AVIF
 
 
-Root layout is required in all Next.js applications
+Root layout is required in all Next.js applications.
 
+Next.js allows you to setup your own database using regular databse engines such as postgress
+
+
+Cases when you would want to use an API on your Next.js application:
+- If you are using a third party provider who provides their services through an API
+- If you are using your own backend client service that is hosted on a seperate server
+- Next allows you to create API endpoints through route handlers.
+
+When building a fullstack application, you need to write logic to interact with your relational database
+You can write sql queries directly on your react application. 
+
+Next.js allows for the use of server components, which means that these components are executed on the server
+That way you can   perform large, security important operations on the server right within your next js application. 
+
+We can use Promise.all() to make multiple parrallel requests simultanously, the promise is not complete until the last 
+parrallel request is completed. This enables us avoid the request waterfall problem. 
+
+Static and Dynamic rendering
+With static rendering, the data fetching happens at build time, which is when we deploy the application. 
+The result can then be distributed and cached in a CDN 
+
+The advantages of static rendering are:
+- Faster websites: prerendered content can be cached and globally distributed. 
+- Reduced server load: Because the content is cached the server does nto have to dynamically generate contnet for each user requerst
+- SEO : prerendering content is easier for search engine crawlers to index, as the contnt is already available when the page loads, this can lead
+to improved search engine rankings.
+
+Static rendering is good for UI with no data, or data that is shared across all users, such as blog posts, product and marketing pages etc.
+
+Dynamic rendering, with dynamic rendering, content is renderd on the server for each user at reqeust time(when the user visits the page). The benefits to 
+dynamic rendering are:
+- Real time data: Dynamic rendering allows your application to display real tiem or requestely updated data. This is ideal for application where data changes often
+- User-specific content: It's easier to serve personalized content; such as dashboards, user proviles and update the data based on user interaction.
+- Request time information: Dynamic rending allows  you to access information that can only be known at reqeust time, such as cookes or url search parameters.
+
+So for website pages use static rendering, for webapp pages use dynamic rendering.
+
+In dynamic rendering, your application is only as fast as the slowest data you fetch.
+
+Streaming....data Streaming
+
+Slow fetches can affect the performance of your overall application.
+
+
+Streing is a data transfer technique that allows you to break down a route into smaller 
+chunks and progressively stream them from the servr to the clienet as they become ready
+
+By streaming you can prevent slow data requests from blocking your whole page. This allows the user to see 
+and interact with parts of the page without waiting for all the data to load befor any UI can be shown to the user. 
+
+Streaming works  wwell in react component model as each component can be seen as a chunk that 
+can be streamed seperatedly.
+
+You can implement streaming at the page level with loading.tsx
+You can implement streaming for specific components using the <Suspense> tag
+
+loading.tsx si a spectial next.js file built on top of Suspens, it allows you to crate a fallback to show as replaement while th page content is loading
+Static content can be loaded immediately allowing the user to interact with the static content while other dynamic content loads. 
+The user does not have to wait for the entire page to finisih loading to navigate away.
+
+Load skeletons are useful for when you are fetching large amounts of data
+
+Route groups in Next.js allow you to organize your routes into logical groups without affecting our
+url path sturctur. You can also use route groups to seperate sections of your application, such as 
+(marketing) routes and (shop) routes for larger applications.
+
+We can streamm entire pages with the loading.tsx file, but with Next.js we can also stream single componnets. 
+<Suspense> allows you to defer rendering some parts of your application till some condition is met. 
+
+Deciding where to place your suspense boundaries
+This is dependent of the following factors:
+- How you want the user to experience the page as it streams
+- what content you want to prioritize
+- if the components rely on data fetching
+
+There are many ways to approach this problem with no right answer, so solution 
+should be based on what you want to prioritize on your ui.
+
+Using partial prerendering in Next.js
+
+Combining static and dynamic content
+Currently if you call a dynamic function inside your route, your entier route becosme dynamic
+
+This is how most web apps are built today. You either choose between static and dynaic rending for your entire
+application or for a specific route.
+
+However, most routes are not fully static or dynamic. You may have a router that has both 
+static and dynamic contnent. In an ecommerce store example you may want to prerender the majority of the product page,
+but you may want to fetch the user's cart and recommended products dynamically on-demand. 
+
+A single page can have both static and dynamic content together. 
+
+Parital prerendering
+
+Next.js contains an experimental feature called partial prerendering, this exeprimental feature allows you 
+to render a route with a static loading shell, while keeping some parts dynamic. In other words, youcan isolate the
+dynaic parts of the route.
+
+When the suer visits a route a static route shell is served ensuring a fast initial load. 
+The shell leaves holes where dynamic conent will load in asychronous, the async holes are streamed in paralledl, reduing the overall load time
+of the page. 
+
+This is different from how most applications behave today, where they are entirely static or dynamic. 
+
+Partial prerendering works by combining reacts concurrent API and uses Suspense to defer the rendering parts of your application 
+util some condition is met. 
+
+The fallback is embedded into the initial static file along with other static content. At build time the static parts of the route are prerendered, and the rest is postponed
+until the suer reqeusts the route.
+
+Wrappign a component in Suspense doesn't make the component itself dynamic, but rather Suspense
+is used as a boundary between static and dynamic parts of your route.
+
+The great thing about partial prerendering is that you don't need to change your code to use it. As long as you're using Suspense to wrap the dyanmic parts of your
+route, Next.js will know which parts of the route are static and which are dynamic.
+
+Adding search and pagination. 
+
+useSearchParams allows use to access search parameters of our Next.js page
+/invoices?page=1&query=pending 
+would look like {page:1, query:pending}
+
+usePathName lets use read the current url pathname
+
+useRouter enables nativation between routes within client components programmatically
+
+As a general rule, if you want to read the params from the client,
+ use the useSearchParams() hook as this avoids having to go back to the serve
+
+Debouncing allows you to decide not to query your database on every keystroke. Debouncing is 
+a programming practice that limits the rate at which a function can fire. In our case you are only to query the database when the user 
+has stopped typing. 
+Debouncing works in the following pattern:
+- There is a trigger event that initatest a countdown
+- If another trigger event occurs during the countdown the countdown is restarted
+- If the countdown reaches the end then the debounced function is executed. 
+
+To implement debouncing, you can use the simple use-debounce package, but for customized behaviour you would 
+want to implement your own custom debouncing scheme. 
+
+Pagination in our Next.js applications. 
+
+Adding pagination allows user to navigate through the different pages to view all the items.
+
+You do not want to fetch data using cleint components as they can expose valuable user secrets. 
+
+
+Mutating data in our applications with Next.js and react 
+
+React server actions allow you to run asychronous code directly on the server. They
+eliminate the need to create API endpoints to mutate your data. Instead, you write asychronous 
+functions that execute on the server and can be invoked from your client or server components. 
+
+Security is a top priority for web applications, as they can be vulnerable to various threats. This is where 
+Server Actions come in. They offer an effective security solution, protecting against different types of attacks, 
+securing your data and esnuring authorized access. Server actions achieve this through technques like 
+POST requests, encrypted closures, strict input checks, error message hashing, and host restrictions, all workign together
+to significantly enhance your app's safety
+
+In Next.js react server actions are deeply integrated with caching, so in the react action you can revalidate your cache based
+on the result of the process in the action. 
+
+Building dynamic route segments with Next.js
+Next.js allows you to create dynamic route segments when you doent know the exact segments
+name and want to create routes baed on data. This could be like blog post titles, product pages, etc.
+You can create dynamic route sgements by wrapping a folder name in square brackets. [id], [post], [slug]
