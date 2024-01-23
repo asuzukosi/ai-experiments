@@ -12,3 +12,67 @@ Dependendencies in chaining output from multiple LLMs
 PEFT = Parameter efficient finetuning 
 
 Building and overall LLMOps workflow
+
+Data management 
+Automation
+Deployment
+
+Unifying ML deployment and operation
+
+automate the process of 
+data integration
+testing 
+releasing 
+deployment
+infrastructure management
+
+
+
+Data Ingestion -> Data Validation -> Data Transformation -> Model -> Model Analysis -> Serving -> Logging 
+
+Job orchestation and job automization 
+
+Difference between LLM systems design and LLMOps
+LLMOps focuses on getting the model to production and monitoring the systems
+- Experimentation with foundation models (Palm-E, GPT-3.5, LLaMa)
+- Prompt design and management
+- Supervised tuning
+- monitoring
+- evaluating LLMs
+
+LLM systems design is focused on the entire end to end system, which include frontend, backend and data engineering
+- Chain multiple LLM operation together
+- Grounding 
+- Track history
+
+Process of a sample LLM application:
+First we could receive the user input, then we would perform pre-processing on the user input (breaking down operation into chunks).
+We can ground our models, send the propmt to our LLM and perform post processing on the output of our model.
+
+For model customization
+- Data preparation
+- Tuning 
+- Evaluation 
+
+
+LLMOps pipeline 
+- Start with preparing datasets and versioning of our datasets
+- Create pipeline for supervised tuning
+- Create Artifact file that has information on our configuration of our workflow
+- Execute pipeline which would deploy our model for us 
+- Safety of output actions of the LLM
+
+how can we orchestrate the steps in our pipeline and how can we automate it. 
+
+The key part of LLM ops is dealing with text data, lots of it. 
+
+We need to use a data warehouse, and we will be using BigQuery as our data warehouse 
+and we will be interacting with the data warehouse through SQL.
+
+When dealing with very large data, all the data may not be able to fit into memory. So how do we optimize for this
+especially when we want to do something like finetuning our model where all the data would be needed. 
+
+When working with large datasets, query optimization is required to save both time and memory. We can 
+use joins and query optimization to improve the time and space used in gathering data, therefore we are taking only 
+the output we need for training our model from the large dataset
+
