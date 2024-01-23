@@ -1,0 +1,14 @@
+Deploying LLM applications involves selecting the right LLM to use and tuning the prompt, evaluation frameworks and deciding how to monitor the application. 
+Depricating the model you have built on, what the hell?
+LLM Provider - e.g OpenAI
+
+usecases of LLM:
+- summerizing customer email
+
+
+Processes and tools for preparation and model tuning for deploying LLM applications. 
+Dependendencies in chaining output from multiple LLMs
+
+PEFT = Parameter efficient finetuning 
+
+Building and overall LLMOps workflow
