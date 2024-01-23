@@ -74,5 +74,11 @@ especially when we want to do something like finetuning our model where all the 
 
 When working with large datasets, query optimization is required to save both time and memory. We can 
 use joins and query optimization to improve the time and space used in gathering data, therefore we are taking only 
-the output we need for training our model from the large dataset
+the output we need for training our model from the large dataset. 
+
+Adding instruction to our imput text for trainng can improve the overall outcome of the PEFT finetuning. 
+Whats the differencee between PEFT and supervised finetuning.
+
+When data is large, we can have issues with memory. It is best to do data processing in SQL in your database. We can 
+then store the result output trianing data seperately and more efficient to query
 
