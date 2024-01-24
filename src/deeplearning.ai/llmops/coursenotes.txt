@@ -87,3 +87,6 @@ You have to tune an LLM multiple times to figure out what model what works best 
 
 MLOps workflows for LLM
 For orchestration or automation we can use frameworks like apache airflow or kubeflow
+
+
+Use instructions in the same format used in training data in the prompts used in production
