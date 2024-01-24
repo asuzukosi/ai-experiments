@@ -82,3 +82,8 @@ Whats the differencee between PEFT and supervised finetuning.
 When data is large, we can have issues with memory. It is best to do data processing in SQL in your database. We can 
 then store the result output trianing data seperately and more efficient to query
 
+
+You have to tune an LLM multiple times to figure out what model what works best for you
+
+MLOps workflows for LLM
+For orchestration or automation we can use frameworks like apache airflow or kubeflow
