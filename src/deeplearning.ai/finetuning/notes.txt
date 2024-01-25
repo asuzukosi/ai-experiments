@@ -1,0 +1,7 @@
+Finetuning is what allows GPT-3 to becomee chatgpt, this is known as instruction tuning, where we finetune the LLM to behave in a certain way
+The question is how can we finetune LLMs to behave in a more agentic way, how can we conpose finetuned LLMs and how can we compose datasets for 
+finetuning LLMs to behave like agents. We want our agentic LLM to hold the following capabilities:
+- Use databases as long term memory
+- Be able to perform systematic planning
+- Leverage tools
+- Customized agentic profiles

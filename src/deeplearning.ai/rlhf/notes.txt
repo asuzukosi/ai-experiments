@@ -1,0 +1,1 @@
+RLHF is used to customize the behaviour of the language model to have a more targeted behaviour
