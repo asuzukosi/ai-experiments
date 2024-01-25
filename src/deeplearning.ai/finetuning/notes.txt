@@ -5,3 +5,10 @@ finetuning LLMs to behave like agents. We want our agentic LLM to hold the follo
 - Be able to perform systematic planning
 - Leverage tools
 - Customized agentic profiles
+
+
+Fine tuning is specialization of our model. It is taking the general purpose foundation model and tuning it to specialize and act in a specific 
+way or format for our usecase. For example we can tune GPT-3 to become ChatGPT for chat usecases, We can tune GPT-4 to become Github Copilot for 
+code assistance usecases.
+
+Fine tuning can also help stear the model to more consistent behaviour.
