@@ -12,3 +12,11 @@ way or format for our usecase. For example we can tune GPT-3 to become ChatGPT f
 code assistance usecases.
 
 Fine tuning can also help stear the model to more consistent behaviour.
+
+Finetuning can be used to acheive the following objectives:
+- Behaviour change
+- Gain Knowledge
+
+Common datasets used for training these foundation models are: 
+- Common Crawl
+- EleutherAI's The Pile 
