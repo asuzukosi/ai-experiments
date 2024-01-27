@@ -1,0 +1,3 @@
+Diffusion works through a noising and denoising process during training
+Noise is continually added to an image and the neural network is trained to 
+continually denoise the image in order to get back the original image
