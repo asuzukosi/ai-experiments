@@ -1,0 +1,1 @@
+Langchain is a platform used for building and designing powerful AI applications. 
