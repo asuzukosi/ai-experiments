@@ -5,3 +5,4 @@ OAI_CONFIG_LIST
 .cache/
 /.cache
 local_cache
+*.pdf
