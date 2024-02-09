@@ -1,1 +1,2 @@
 In this section we would be wakling through the llama index documentation. We aim to undersand the components, examples and usecases for llaman index
+Llama Index is a data framework for LLM based applications.
