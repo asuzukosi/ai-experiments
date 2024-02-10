@@ -7,3 +7,4 @@ OAI_CONFIG_LIST
 local_cache
 *.pdf
 *.json
+*/paul_graham/
