@@ -6,3 +6,4 @@ OAI_CONFIG_LIST
 /.cache
 local_cache
 *.pdf
+*.json
