@@ -8,3 +8,4 @@ local_cache
 *.pdf
 *.json
 */paul_graham/
+src/llamaindex/qa/multidocagentqa/docs.llamaindex.ai
