@@ -9,3 +9,5 @@ local_cache
 *.json
 */paul_graham/
 src/llamaindex/qa/multidocagentqa/docs.llamaindex.ai
+src/afjlimitedagent/data
+src/afjlimitedagent/afjltd.co.uk
