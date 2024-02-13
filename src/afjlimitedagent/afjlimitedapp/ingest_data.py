@@ -49,7 +49,7 @@ def load_dataset(directory):
 
             # read file and create dataframe
             if df is not None:
-                new_df = pd.read_csv(os.path.join("data", file))
+                new_df = pd.read_csv(os.path.join(directory, file))
                 new_df["date"] = date
                 new_df["brand"] = brand
                 new_df["model"] = model
@@ -58,7 +58,7 @@ def load_dataset(directory):
                 new_df["condition"] = condition
                 df = pd.concat([df, new_df])
             else:
-                df = pd.read_csv(os.path.join("data", file))
+                df = pd.read_csv(os.path.join(directory, file))
                 df["date"] = date
                 df["brand"] = brand
                 df["model"] = model

@@ -1,30 +1,39 @@
+from openai import OpenAI
 import streamlit as st
-import numpy as np
-import pandas as pd
 
-st.markdown("# Agent page 🤖")
-st.sidebar.markdown("# Agent page 🤖")
+st.title("ChatGPT-like clone")
 
-prompt = st.chat_input("Say something")
-if prompt:
-    st.write(f"User has sent the following prompt: {prompt}")
-    
-    
+client = OpenAI(base_url="https://api.together.xyz/v1")
 
+if "openai_model" not in st.session_state:
+    st.session_state["openai_model"] = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 
-with st.chat_message("user"):
-    st.write("Hello 👋")
-    st.line_chart(np.random.randn(30, 3))
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-st.divider()  # 👈 Draws a horizontal rule
-st.caption('This is a string that explains something above.')
-st.caption('A caption with _italics_ :blue[colors] and emojis :sunglasses:')
-st.divider()
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-message = st.chat_message("assistant")
-message.write("Hello human")
-message.bar_chart(np.random.randn(30, 3))
+if prompt := st.chat_input("What is up?"):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
-
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-message.line_chart(chart_data)
+    st.divider()
+    st.caption('This is a string that explains something above.')
+    st.caption('A caption with _italics_ :blue[colors] and emojis :sunglasses:')
+    st.divider()
+        
+    with st.chat_message("assistant"):
+        response = client.chat.completions.create(
+            model=st.session_state["openai_model"],
+            messages=[
+                {"role": m["role"], "content": m["content"]}
+                for m in st.session_state.messages
+            ],
+            stream=False,
+        )
+        message = response.choices[0].message.content
+        st.write(message)
+    st.session_state.messages.append({"role": "assistant", "content": message})
