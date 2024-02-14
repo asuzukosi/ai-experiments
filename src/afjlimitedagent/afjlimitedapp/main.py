@@ -4,20 +4,12 @@ st.markdown("# Main page 🚀")
 st.sidebar.markdown("# Main page 🚀")
 
 
-txt = st.text_area(
-    "Text to analyze",
-    "It was the best of times, it was the worst of times, it was the age of "
-    "wisdom, it was the age of foolishness, it was the epoch of belief, it "
-    "was the epoch of incredulity, it was the season of Light, it was the "
-    "season of Darkness, it was the spring of hope, it was the winter of "
-    "despair, (...)",
+st.write(
+    "Welcome to AFJ Limited! We are a well-established company that has been providing exceptional transportation and training services since 2006."
+    "Our comprehensive range of services includes minibus hire with driver, wheelchair transport,"
+    " non-emergency patient transport service, training services, home to school transport, and fleet maintenance service",
     )
 
-st.write(f'You wrote {len(txt)} characters.')
-
-
-st.button("Reset", type="primary")
-if st.button('Say hello'):
-    st.write('Why hello there')
-else:
-    st.write('Goodbye')
+st.divider()
+st.write("This is a data science project for AFJ limited which includes the development of a data analytics dashboard,"
+           " machine learning models, and a data science agent of the company")

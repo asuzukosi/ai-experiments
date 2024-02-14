@@ -1,9 +1,11 @@
 from openai import OpenAI
 import streamlit as st
+from tools import run_agent_executor
 
-st.title("ChatGPT-like clone")
 
-client = OpenAI(base_url="https://api.together.xyz/v1")
+st.title("AFJ limited datascientist agent")
+st.sidebar.markdown("# AFJ Limited data scientist agent 🤖")
+
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "mistralai/Mixtral-8x7B-Instruct-v0.1"
@@ -19,21 +21,11 @@ if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
-
-    st.divider()
-    st.caption('This is a string that explains something above.')
-    st.caption('A caption with _italics_ :blue[colors] and emojis :sunglasses:')
-    st.divider()
-        
+     
     with st.chat_message("assistant"):
-        response = client.chat.completions.create(
-            model=st.session_state["openai_model"],
-            messages=[
-                {"role": m["role"], "content": m["content"]}
-                for m in st.session_state.messages
-            ],
-            stream=False,
-        )
-        message = response.choices[0].message.content
-        st.write(message)
-    st.session_state.messages.append({"role": "assistant", "content": message})
+        response, message = run_agent_executor(st.session_state.messages[-1])
+        st.divider()
+        st.caption(message)
+        st.divider()
+        st.write(response)
+    st.session_state.messages.append({"role": "assistant", "content": response})
