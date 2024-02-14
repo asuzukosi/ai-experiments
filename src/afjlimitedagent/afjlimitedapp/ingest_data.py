@@ -23,11 +23,9 @@ def load_dataset(directory):
     # read all the files from the data directory
     files = os.listdir(directory)
     number_of_files = len(files)
-    print("The number of files are : ", files)
 
     file = files[random.randint(0, 10)]
     keys = file.split(".")[0].split("_")
-    print(keys), print("number of keys are ", len(keys))
     
     df = None
 
@@ -86,17 +84,17 @@ def postprocess_dataset(df: pd.DataFrame):
         for index, row in unique_pairs.iterrows():
             # create sub sub df based on the source, destination and condition
             sub_sub_df: pd.DataFrame = sub_df[(sub_df["source"] == row["source"]) & (sub_df["destination"] == row["destination"]) & (sub_df["condition"] == row["condition"])]
-            old_size = sub_sub_df.size
+            # old_size = sub_sub_df.size
             
             # Round timestamps down to the nearest 10-minute interval
             sub_sub_df['RoundedTime'] = sub_sub_df['Time'].dt.floor('10min')
             
             # group sub sub df by the rounded time
             sub_sub_df = sub_sub_df.groupby('RoundedTime').first()
-            new_size = sub_sub_df.size
+            # new_size = sub_sub_df.size
             
             # calculate the amount of data dropped on the sub sub df
-            print("Amount reduced by : ", old_size - new_size)
+            # print("Amount reduced by : ", old_size - new_size)
             
             # append to new_dfs list
             new_dfs.append(sub_sub_df)
