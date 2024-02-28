@@ -1,7 +1,9 @@
 from textwrap import dedent
 from crewai import Task
 
+# Each task can be an entire usecase or an entire sequence of tasks can form a unqiue usecase
 class Tasks():
+        # the first task is to research company culture and task
 		def research_company_culture_task(self, agent, company_description, company_domain):
 				return Task(
 						description=dedent(f"""\
@@ -11,7 +13,7 @@ class Tasks():
 								A comprehensive report detailing the company's culture, values, and mission, along with specific selling points relevant to the job role. Suggestions on incorporating these insights into the job posting should be included."""),
 						agent=agent
 				)
-
+        # the second task is to research the role and the requirements
 		def research_role_requirements_task(self, agent, hiring_needs):
 				return Task(
 						description=dedent(f"""\
@@ -20,7 +22,7 @@ class Tasks():
 								A list of recommended skills, experiences, and qualities for the ideal candidate, aligned with the company's culture, ongoing projects, and the specific role's requirements."""),
 						agent=agent
 				)
-
+		# the third task is the generate a draft job posting using the company description and hiring needs
 		def draft_job_posting_task(self, agent, company_description, hiring_needs, specific_benefits):
 				return Task(
 						description=dedent(f"""\
@@ -31,6 +33,7 @@ class Tasks():
 						agent=agent
 				)
 
+        # the fourth task is to reveiw and edit the job posting
 		def review_and_edit_job_posting_task(self, agent, hiring_needs):
 				return Task(
 						description=dedent(f"""\
@@ -41,6 +44,7 @@ class Tasks():
 						output_file="job_posting.md"
 				)
 
+		# the fifth task is to perform indept industry analysis
 		def industry_analysis_task(self, agent, company_domain, company_description):
 				return Task(
 						description=dedent(f"""\

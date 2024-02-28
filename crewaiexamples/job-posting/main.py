@@ -6,13 +6,24 @@ from crewai import Crew
 from tasks import Tasks
 from agents import Agents
 
-tasks = Tasks()
-agents = Agents()
+import openai
 
-company_description = input("What is the company description?\n")
-company_domain = input("What is the company domain?\n")
-hiring_needs = input("What are the hiring needs?\n")
-specific_benefits = input("What are specific_benefits you offer?\n")
+openai.base_url = "https://api.openai.com/v1"
+
+# get all the tasks and all the agents
+tasks = Tasks() # 5 tasks
+agents = Agents() # 3 agents
+
+# specifiy company description and domain
+company_description = "We are a shoe making company"
+# input("What is the company description?\n")
+company_domain = "We make designer shoes"
+# input("What is the company domain?\n")
+# specify hiring needs and special benefits
+hiring_needs = "Shoe making experience"
+# input("What are the hiring needs?\n")
+specific_benefits = "Remote work"
+# input("What are specific_benefits you offer?\n")
 
 # Create Agents
 researcher_agent = agents.research_agent()
